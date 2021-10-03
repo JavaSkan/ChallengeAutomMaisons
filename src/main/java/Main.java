@@ -203,7 +203,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int n = 0; //nombre de maison
+        int n = 0; //nombre de maisons
 
         do{
             System.out.print("Combien de maisons voulez vous créer?: ");
