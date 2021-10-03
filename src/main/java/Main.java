@@ -211,14 +211,17 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        int n; //nombre de maison
         System.out.print("Combien de maisons voulez vous créer? ");
-        int n;
+
         do{
             n = sc.nextInt();
             if(!isValid(n)){
                 System.err.println("Le nombre des maisons soit être superieur ou égal à zero!");
             }
         }while(!isValid(n));
+
+        int[][] cos = getCoordinate(n);
 
         char[][] grid = getCleanGrid(cos);
         displayGrid(grid);
