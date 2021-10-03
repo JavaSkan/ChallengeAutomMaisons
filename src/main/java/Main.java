@@ -1,11 +1,15 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     private static boolean isValid(int n)
     {
-        return n <= 1000000 && n >= 0;
+        if(!(n <= 1000000 && n >= 0))
+        {
+            System.out.println("/!\\ La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 10^6 (inclus) /!\\");
+            return false;
+        }
+        return true;
     }
 
     private static int trueOrdonate(int o, char[][] grid)
@@ -45,27 +49,15 @@ public class Main {
             {
                 System.out.print("Donnez un l'abscisse de la maison n°"+(i+1)+": ");
                 x = sc.nextInt();
-
-                if(isValid(x))
-                {
-                    coordinates[i][0] = x;
-                }else{
-                    System.out.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
-                }
             }while(!isValid(x));
+            coordinates[i][0] = x;
 
             do //pour l'ordonnée
             {
-
                 System.out.print("Donnez un l'ordonnée de la maison n°"+(i+1)+": ");
                 y = sc.nextInt();
-                if(isValid(y))
-                {
-                    coordinates[i][1] = y;
-                }else{
-                    System.out.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
-                }
             }while(!isValid(y));
+            coordinates[i][1] = y;
 
         }
 
@@ -214,10 +206,7 @@ public class Main {
         int n = 0; //nombre de maison
 
         do{
-            if(!isValid(n))
-                System.out.println("Le nombre est incorect!");
-
-            System.out.print("Combien de maisons voulez vous créer? (doit être compris entre 0 et 10^3 inclus) ");
+            System.out.print("Combien de maisons voulez vous créer?: ");
             n = sc.nextInt();
         }while(!isValid(n));
 
