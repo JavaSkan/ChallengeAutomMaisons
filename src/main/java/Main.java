@@ -50,7 +50,7 @@ public class Main {
                 {
                     coordinates[i][0] = x;
                 }else{
-                    System.err.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
+                    System.out.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
                 }
             }while(!isValid(x));
 
@@ -63,7 +63,7 @@ public class Main {
                 {
                     coordinates[i][1] = y;
                 }else{
-                    System.err.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
+                    System.out.println("La valeur que vous avez donné est érronéé, cette dernière doit être comprise entre 0 et 1000000 (inclus)");
                 }
             }while(!isValid(y));
 
@@ -211,14 +211,14 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int n; //nombre de maison
-        System.out.print("Combien de maisons voulez vous créer? ");
+        int n = 0; //nombre de maison
 
         do{
+            if(!isValid(n))
+                System.out.println("Le nombre est incorect!");
+
+            System.out.print("Combien de maisons voulez vous créer? (doit être compris entre 0 et 10^3 inclus) ");
             n = sc.nextInt();
-            if(!isValid(n)){
-                System.err.println("Le nombre des maisons soit être superieur ou égal à zero!");
-            }
         }while(!isValid(n));
 
         int[][] cos = getCoordinate(n);
